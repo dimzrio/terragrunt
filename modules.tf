@@ -1,8 +1,25 @@
-module "vm_compute_instance" {
-  source  = "terraform-google-modules/vm/google//modules/compute_instance"
-  version = "6.4.0"
-  project_id = "kitabisa-infra"
-  region     = "asia-southeast1"
-  zone       = "asia-southeast1-a"
-  subnetwork = "ktbs-util-asia-se1-infra-subnet-1"
+module "vpc" {
+    source  = "terraform-google-modules/network/google//modules/vpc"
+    version = "~> 2.0.0"
+
+    project_id   = "kitabisa-infra"
+    network_name = "dimzrio"
+
+    shared_vpc_host = false
+}
+
+module "subnet" {
+    source  = "terraform-google-modules/network/google//modules/subnets"
+    version = "~> 2.0.0"
+
+    project_id   = "kitabisa-infra"
+    network_name = "dimzrio"
+
+    subnets = [
+        {
+            subnet_name           = "subnet-01"
+            subnet_ip             = "10.10.10.0/24"
+            subnet_region         = "asia-southeast1"
+        },
+    ]
 }
