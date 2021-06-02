@@ -13,7 +13,7 @@ module "subnet" {
     version = "~> 2.0.0"
 
     project_id   = "kitabisa-infra"
-    network_name = "dimzrio"
+    network_name = module.vpc.network_name
 
     subnets = [
         {
