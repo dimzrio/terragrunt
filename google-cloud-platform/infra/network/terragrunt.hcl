@@ -12,6 +12,10 @@ terraform {
   }
 }
 
+inputs = {
+  project = "kitabisa-infra"
+}
+
 include {
   path = find_in_parent_folders()
 }

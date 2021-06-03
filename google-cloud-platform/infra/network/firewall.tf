@@ -1,6 +1,6 @@
-module "firewall_rules" {
+module "firewall_rules_dimzrio" {
   source       = "terraform-google-modules/network/google//modules/firewall-rules"
-  version      = "~> 3.0.0"
+  version      = "~> 3.3.0"
 
   project_id   = var.project
   network_name = module.vpc_dimzrio.network_name

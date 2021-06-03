@@ -1,6 +1,6 @@
 module "subnet_dimzrio" {
     source  = "terraform-google-modules/network/google//modules/subnets"
-    version = "~> 3.0.0"
+    version = "~> 3.3.0"
 
     project_id   = var.project
     network_name = module.vpc_dimzrio.network_name
