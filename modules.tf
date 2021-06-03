@@ -7,3 +7,19 @@ module "vpc" {
 
     shared_vpc_host = false
 }
+
+module "subnet" {
+     source  = "terraform-google-modules/network/google//modules/subnets"
+     version = "~> 2.0.0"
+
+     project_id   = "kitabisa-infra"
+     network_name = module.vpc.network_name
+
+     subnets = [
+         {
+             subnet_name           = "subnet-01"
+             subnet_ip             = "10.10.7.0/24"
+             subnet_region         = "asia-southeast1"
+         },
+     ]
+ }
