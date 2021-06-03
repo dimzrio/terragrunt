@@ -18,7 +18,7 @@ module "subnet" {
      subnets = [
          {
              subnet_name           = "subnet-01"
-             subnet_ip             = "10.10.7.0/24"
+             subnet_ip             = "10.10.9.0/24"
              subnet_region         = "asia-southeast1"
          },
      ]
